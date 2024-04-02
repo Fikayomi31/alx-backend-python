@@ -13,15 +13,14 @@ class TestAccessNestedMap(unittest.TestCase):
         unittest (_type_): _description_
     """
 
-    @parameterized.expand(
-        [
+    @parameterized.expand([
             ({"a": 1}, ("a",), 1),
             ({"a": {"b": 2}}, ("a",), {"b": 2}),
             ({"a": {"b": 2}}, ("a", "b"), 2)
-        ]
-    )
+    ])
+
     def test_access_nested_map(self, nested_map, path, expected_output):
-        """_summary_
+        """Testing access_nested_map function of utils.py
         """
         result = access_nested_map(nested_map, path)
         self.assertEqual(result, expected_output)
@@ -34,7 +33,7 @@ class TestAccessNestedMap(unittest.TestCase):
     )
     def test_access_nested_map_exception(self, nested_map, path,
                                          expected_output):
-        """_summary_
+        """Test that raise key error when the key is not in dict
         """
         with self.assertRaises(expected_output) as context:
             access_nested_map(nested_map, path)
