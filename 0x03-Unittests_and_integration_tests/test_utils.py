@@ -53,7 +53,7 @@ class TestGetJson(unittest.TestCase):
         """method to test that utils.get_json returns 
         the expected result
         """
-        mock_response = Mock
+        mock_response = Mock()
         mock_response.json.return_value = expected_output
         with patch('requests.get', return_value=mock_response):
             response = get_json(url)
