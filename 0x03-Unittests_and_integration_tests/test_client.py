@@ -43,12 +43,12 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch(
             "client.GithubOrgClient._public_repos_url",
             new_callable=PropertyMock
-        ) as mock_public_repos_url:
-            mock_public_repos_url.return_value = (
+        ) as mock_repos_url:
+            mock_repos_url.return_value = (
                 "https://api.github.com/orgs/google/repos"
             )
             github_org_client = GithubOrgClient("google")
             self.assertEqual(github_org_client.public_repos(),
                              ["repo1", "repo2"])
             mock_json.assert_called_once()
-            mock_public_repos_url.assert_called_once()
+            mock_repos_url.assert_called_once()
