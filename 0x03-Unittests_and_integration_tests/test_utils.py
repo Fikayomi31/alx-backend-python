@@ -60,8 +60,11 @@ class TestMemoize(unittest.TestCase):
     """Testing utils.memoize function
     """
     def test_memorize(self):
+        """doc
+        """
         class TestClass:
-
+            """doc
+            """
             def a_method(self):
                 """doc
                 """
@@ -80,3 +83,4 @@ class TestMemoize(unittest.TestCase):
             result_2 = test_class.a_property
             self.assertEqual(result, 42)
             self.assertEqual(result_2, 42)
+            mock_method.assert_called_once()
