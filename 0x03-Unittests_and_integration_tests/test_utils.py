@@ -84,3 +84,7 @@ class TestMemoize(unittest.TestCase):
             self.assertEqual(result, 42)
             self.assertEqual(result_2, 42)
             mock_method.assert_called_once()
+
+
+if __name__ == '__main__':
+    unittest.main()
