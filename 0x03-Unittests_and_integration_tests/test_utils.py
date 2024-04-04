@@ -18,7 +18,6 @@ class TestAccessNestedMap(unittest.TestCase):
             ({"a": {"b": 2}}, ("a",), {"b": 2}),
             ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
-
     def test_access_nested_map(self, nested_map, path, expected_output):
         """Testing access_nested_map function of utils.py
         """
@@ -52,7 +51,6 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, url, expected_output, mock_get: Mock):
         """method to test that utils.get_json
         """
-        
         mock_get.return_value.json.return_value = expected_output
         self.assertEqual(get_json(url), expected_output)
         mock_get.assert_called_once_with(url)
@@ -74,7 +72,7 @@ class TestMemoize(unittest.TestCase):
                 """doc
                 """
                 return self.a_method()
-        
+
         with patch.object(TestClass, 'a_method') as mock_method:
             test_class = TestClass()
             mock_method.return_value = 42
